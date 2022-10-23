@@ -1,0 +1,44 @@
+package com.example.newweb;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText wt,ht;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
+
+
+        //EditText wt,ht;
+        TextView rlt;
+        Button btn;
+
+        wt=findViewById(R.id.wt);
+        ht=findViewById(R.id.ht);
+        rlt=findViewById(R.id.rlt);
+        btn=findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double a = Double.parseDouble(wt.getText().toString());
+                double b = Double.parseDouble(ht.getText().toString());
+                double c = a/(b*b);
+
+                rlt.setText(""+c);
+            }
+
+        });
+
+
+    }
+}
